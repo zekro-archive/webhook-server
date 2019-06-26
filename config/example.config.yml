@@ -1,17 +1,17 @@
+run_location: ./scripts
 webserver:
   port: 8080
   enabletls: false
   tlscert: ''
   tlskey: ''
-  general_token: F4rBKuCWY1y2_M0jZ2IJFcoVlp3MfDKW
-  
+  general_token: smGBs3pcXJokB1tt7Psq5X1hA4CqWNEw
+
 hooks:
   - name: example-hook
     enabled: true
-    endpoint: '/test/:name'
+    endpoint: /test
     methods:
       - GET
-      - POST
     scripts:
-      - bash ./scripts/example.sh
-    token: 'abc'
+      - bash ./example.sh
+    token: ''

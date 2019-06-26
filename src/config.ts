@@ -5,6 +5,7 @@ import fs from 'fs';
 import { rnadomStirng } from './util';
 
 export class Config {
+  public run_location: string = './';
   public webserver: ConfigWebServer = new ConfigWebServer();
   public hooks: Array<ConfigHookEntry> = [
     {

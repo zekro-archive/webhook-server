@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx tsc && node dist/main.js",
     "build": "npx tsc",
+    "start-dry": "node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zekro",
