@@ -19,6 +19,12 @@ function main() {
       description: 'Web server expose port (overrides config)',
       type: 'number',
     })
+    .option('run-location', {
+      alias: 'l',
+      description:
+        'Location from where scripts will be executed (overrides config)',
+      type: 'string',
+    })
     .help()
     .alias('help', 'h').argv;
 
@@ -34,6 +40,13 @@ function main() {
   if (argv.port) {
     config.webserver.port = argv.port;
   }
+
+  if (argv['run-location']) {
+    config.run_location = argv['run-location'];
+  }
+
+  process.chdir(config.run_location);
+  logger.info(`changed working directory to ${config.run_location}`);
 
   new WebServer(config.webserver, config.hooks).listenAndServe().then(() => {
     logger.info(
